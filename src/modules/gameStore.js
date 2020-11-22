@@ -4,21 +4,23 @@ export const gameSlice = createSlice({
   name: 'game',
   initialState: {
     startGame: false,
-    score: 0
+    score: 0,
+    traceWidth: 0
   },
   reducers: {
-    startInit: state => {
-        
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
+    startInit: state => { 
       state.startGame = true;
-    } 
+    } ,
+    setTraceWidth:(state, action) => {
+        state.traceWidth = action.payload;
+    },
+    setScore:(state, action) => {
+        state.score += action.payload;
+    },
   },
 });
 
-export const { startInit } = gameSlice.actions;
+export const { startInit , setTraceWidth , setScore } = gameSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -31,5 +33,6 @@ export const { startInit } = gameSlice.actions;
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
 export const getStart = state => state.game.startGame;
 export const getScore = state => state.game.score;
+export const getTraceWidth = state => state.game.traceWidth;
 
 export default gameSlice.reducer;

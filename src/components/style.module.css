@@ -33,9 +33,14 @@ header{
     font-size: 20px;
 }
 
+.pa{ 
+    z-index: 10000;
+    position: relative;
+}
+
 .pe{
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
     border-radius: 100px;
     position: absolute;
     color: #fff;
@@ -51,11 +56,24 @@ header{
                 0px 0px 0px 20px rgba(255 , 0 , 0 , .2) ;
 }
 
-.trace{
-    background-color: pink;
+.peWrapper{
+    width: 100px;
+    height: 100px; 
+    position: fixed;
+}
+
+.peRed + .trace{
+    background: linear-gradient(0deg, red, transparent);
+}
+
+.trace{ 
     position: absolute;
     width: 100%;
-    top: 0;
+    bottom: 55%;
+    left:  0px;
+    height: 200px;
+    z-index: -100;
+    transition: all .1s ease-in-out;
 }
 
 .hideZone{
@@ -73,7 +91,10 @@ header{
 
 .mainScore{
     color: #cacaca;
-    font-size: 60px;
-    top: 25px;
+    font-size: 100px;
+    top: 45px;
     position: absolute;
+    text-align: center;
+    display: block;
+    width: 100%;
 }

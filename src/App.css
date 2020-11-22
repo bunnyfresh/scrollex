@@ -4,6 +4,16 @@
   font-family: 'Rationale', sans-serif;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

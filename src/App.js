@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import  Header   from './components/Header';
 import PlayArea from './components/PlayArea';
@@ -10,6 +10,14 @@ const colors = {
   'blue': '#0000ff',
 }
 function App() {
+
+  useEffect(() => {
+    setTimeout(() => window.scrollTo({
+      top:  0 
+    }) , 100)
+    
+  }, [])
+
   return (
     <div className="App">
       <Header />
