@@ -4,6 +4,7 @@ import header from '../assets/header.svg';
 import logo from '../assets/logo.svg'; 
 import { useSelector } from 'react-redux';
 import { getStart , getScore } from '../modules/gameStore';
+import Destantion from './Destantion';
 
 export default function Header() { 
   
@@ -22,6 +23,7 @@ export default function Header() {
       </div>
       <div className={styles.hideZone+" "+(gStart ?  '' :  styles.hide  )}>
           <var className={styles.mainScore}>{gScore || 0}</var>
+          <Destantion />
       </div>
     </header>
   );

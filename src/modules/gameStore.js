@@ -5,7 +5,8 @@ export const gameSlice = createSlice({
   initialState: {
     startGame: false,
     score: 0,
-    traceWidth: 0
+    traceWidth: 0,
+    destination: 0
   },
   reducers: {
     startInit: state => { 
@@ -17,10 +18,13 @@ export const gameSlice = createSlice({
     setScore:(state, action) => {
         state.score += action.payload;
     },
+    setDestination:(state, action) => {
+        state.destination = action.payload;
+    },
   },
 });
 
-export const { startInit , setTraceWidth , setScore } = gameSlice.actions;
+export const { startInit , setTraceWidth , setScore , setDestination } = gameSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -34,5 +38,6 @@ export const { startInit , setTraceWidth , setScore } = gameSlice.actions;
 export const getStart = state => state.game.startGame;
 export const getScore = state => state.game.score;
 export const getTraceWidth = state => state.game.traceWidth;
+export const getDestination = state => state.game.destination;
 
 export default gameSlice.reducer;

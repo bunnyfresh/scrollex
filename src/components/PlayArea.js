@@ -1,7 +1,7 @@
 import React  from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './style.module.css'; 
-import {  setTraceWidth , setScore, getStart} from '../modules/gameStore';
+import {  setTraceWidth , setScore, getStart , setDestination} from '../modules/gameStore';
 
 export default function PlayArea(props) { 
     let stmax = 0;
@@ -38,7 +38,11 @@ export default function PlayArea(props) {
             let st = window.pageYOffset || document.documentElement.scrollTop; 
             // console.log(stmax )
             if(st>stmax){
+
                 stmax=st
+
+                // var scrollPercentage = 100 * window.scrollTop ;
+ 
 
                 const ss = Math.ceil(checkScrollSpeed()); 
 
@@ -46,6 +50,7 @@ export default function PlayArea(props) {
                     const score = ss * 10;
                     dispatch(setTraceWidth(score));
                     dispatch(setScore(score));
+                    dispatch(setDestination(st * 100 / 100000))
                 }
             
             }else{ 
@@ -59,7 +64,7 @@ export default function PlayArea(props) {
     document.addEventListener('scroll' , scrollHandler)
 
     return (
-        <div className={styles.pa} style={{height: gStart ? 30000 : 'auto' }}> 
+        <div className={styles.pa} style={{height: gStart ? 100000 : 'auto' }}> 
             {props.children}
         </div>
     );
